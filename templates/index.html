@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical is-3">
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-info">
+            <p class="title">{{name}}</p>
+            <figure class="image is-5by4">
+              <img src="/final_proj_1/{{ profile }}" alt="User Image">
+            </figure>
+            <br>
+            <p class="title">Current Estate: </p> <p class="subtitle">{{estate}}</p>
+            
+            <p class="title">Item: </p> <p class="subtitle">{{numOfItem}}</p>
+            <br>
+            <p class="title">Remaining balance: </p> <p class="subtitle">{{ remaining }}</p>
+            
+            <p class="title">Target budget: </p> <p class="subtitle">{{ budget }}</p>
+          </article>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tile is-parent is-vertical">
+      <article class="tile is-child notification is-warning">
+        <div class="content">
+          <p class="title">Items List</p>
+          <p class="subtitle">Your Shopping List Here</p>
+          <div class="content">
+            <!-- could also use table here -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th><abbr title="Name">Name</abbr></th>
+                  <th><abbr title="Price">Price</abbr></th>
+                  <th><abbr title="Link">Link</abbr></th>
+                  <th><abbr title="Update">Update</abbr></th>
+                  <th><abbr title="Delete">Delete</abbr></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {%for i in range(start, end)%} 
+                  {% if items[i] is defined %}
+                    <tr>
+                      <td>{{items[i].name}}</td>
+                      <td>{{items[i].price}}</td>
+                      <td><a href="{{items[i].link}} " target="_blank">{{items[i].link}}</a></td>
+                      <td><a href="/final_proj_1/update/{{items[i].id}}">Update</a></td>
+                      <td><a href="/final_proj_1/delete/{{items[i].id}}">Delete</a></td>
+                    </tr>
+                  {% else %}
+                    <tr>
+                      <td><br></td>
+                      <td><br></td>
+                      <td><br></td>
+                      <td><br></td>
+                      <td><br></td>
+                    </tr>
+                  {% endif %}
+                {%endfor%} 
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <div class="tile is-parent">
+        <!-- design a controller for incrementing and decrementing indexes here -->
+        <a href="/final_proj_1/dec" class="pagination-previous tile is-child">Previous</a>
+        <a href="/final_proj_1/inc" class="pagination-next tile is-child">Next page</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

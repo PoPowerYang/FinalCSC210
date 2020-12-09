@@ -1,0 +1,157 @@
+body {
+    margin:0;
+    font-size:15px;
+    line-height:1.5;
+    background-image: url("images/bg6.jpg");
+    height: 400px; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+img {
+    border-radius: 15px 50px 30px;
+    border-style: ridge;
+    border-width: 2px;
+    height: 400px;
+}
+
+hr {
+    display: block;
+    height: 0px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+.content{
+    margin-left:auto; 
+    margin-right:auto; 
+    max-width:980px
+}
+
+.margin-top{
+    margin-top:16px!important
+}
+
+.padding{
+    padding:8px 16px!important
+}
+
+.ex-padding {
+    padding:8px 16px!important;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.padding-16{
+    padding-top:16px!important;
+    padding-bottom:16px!important; 
+    
+}
+
+.top{ 
+    width:100%;z-index:1; 
+    top:0
+}
+
+.recipe-left {
+    width: 25%;
+    float: left;
+  }
+
+.recipe-right {
+    width: 25%;
+    float: right;
+}
+
+.recipe-center {
+    width: 50%;
+    float: left;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+  
+.grid-container > li {
+    font-family:Verdana,sans-serif;
+    line-height:1.5;
+    color: rgb(255, 255, 255);
+    background-image: url("images/grid-bg.jpg");
+    text-align: center;
+    padding: 20px 0;
+    font-size: 12px;
+    border-radius: 15px 2px 30px;
+    border-style: ridge;
+    border-width: 2px;
+}
+
+.container > li {
+    font-family:Verdana,sans-serif;
+    font-size: 50px;
+}
+
+.white{
+    color:#000!important;
+    background-color:#fff!important
+}
+
+.xlarge{
+    font-size:75px!important
+}
+
+.medium{
+    font-size:15px;
+    padding:0 30px;
+    font-family: American Typewriter, serif;
+}
+
+.center{
+    text-align:center!important
+}
+
+.quarter{
+    float:left; 
+    width:24.99999%; 
+    padding:0 8px;
+}
+
+.button {
+    
+    font-size: 30px;
+    background-image: url("images/button-bg.jpg");
+    border-radius: 15px;
+    border: none;
+    color: white;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+a.button {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 30px;
+    color: white;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-image: url("images/button-bg.jpg");
+    text-decoration: none;
+}
+
+h3 {
+    font-family: "Karma", sans-serif;
+}

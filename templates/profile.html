@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div class="notification is-danger">
+          {{ messages[0] }}.
+      </div>
+  {% endif %}
+  {% endwith %}
+  <div class="tile is-ancestor">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+
+        <div class="tile is-child notification is-info">
+          <p class="title">{{name}}</p>
+          <figure class="image is-5by4">
+            <img src="/final_proj_1/{{ profile }}" alt="User Image">
+          </figure>
+        </div>
+
+        <form enctype="multipart/form-data" class="tile is-child" action="/final_proj_1/profile" method="POST">
+          {{ form3.hidden_tag() }}
+          {{ wtf.form_errors(form, hiddens="only") }}
+
+          
+            <div class="tile is-child notification is-warning">
+              {{ form3.photo }}
+              <br><br>
+              {{ form3.submit(class_="button is-block is-info is-fullwidth") }}
+            </div>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- figure out a way to align with the left section and figure out a way 
+    for the index page place holder stuff -->
+    <div class="tile is-9">
+      <form class="tile is-vertical" action="/final_proj_1/profile" method="POST">
+        {{ form.hidden_tag() }}
+        {{ wtf.form_errors(form, hiddens="only") }}
+        <div class="field tile is-parent">
+          
+          <div class="control tile is-child notification is-warning">
+            <p>Name:</p>
+            {{ form.name(class_="input", value = current_user.name) }}
+          </div>
+        </div>
+        <div class="field tile is-parent">
+          <div class="control tile is-child notification is-warning">
+            <p>Budget:</p>
+            {{ form.budget(class_="input", value = current_user.budget) }}
+          </div>
+        </div>
+        <div class="field tile is-parent">
+          <div class="control tile is-child notification is-warning">
+            <p>Estate:</p>
+            {{ form.estate(class_="input", value = current_user.estate) }}
+          </div>
+        </div>
+        <div class="field tile is-parent">
+          {{ form.submit(class_="button is-block is-info is-fullwidth tile is-child") }}
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="tile is-ancestor">
+
+    <div class="tile is-parent is-vertical">
+      
+        <article class="tile is-child notification is-warning">
+          <p class="title">Add new item here</p>
+          <form class="tile is-vertical" action="/final_proj_1/profile" method="POST">
+            {{ form2.hidden_tag() }}
+            {{ wtf.form_errors(form, hiddens="only") }}
+
+            <div class="field tile is-parent is-vertical is-12">
+              <div class="control tile is-child notification is-warning">
+                {{ form2.name(class_="input", placeholder="Item names") }}
+                <br><br>
+                {{ form2.price(class_="input", placeholder="Prices") }}
+                <br><br>
+                {{ form2.link(class_="input", placeholder="Links") }}
+              </div>
+
+              {{ form2.submit(class_="button is-block is-info tile is-child") }}
+            </div>
+            
+          </form>
+        </article>
+      
+    </div>
+  </div>
+
+{% endblock %}

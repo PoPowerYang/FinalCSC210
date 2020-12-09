@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Update{% endblock %}
+
+{% block content %}
+    <div class="tile is-ancestor">
+        <div class="tile is-parent is-vertical">
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-warning">
+              <form class="tile is-vertical" action="/final_proj_1/update/{{ item_update.id }}" method="POST">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_errors(form, hiddens="only") }}
+                <div class="field tile is-parent is-vertical">
+                  <p class="title">Enter new name</p>
+                  <div class="control tile is-child notification is-warning is-12">
+                    {{ form.name(class_="input", value=item_update.name) }}
+                  </div>
+
+                  <p class="title">Enter new price</p>
+                  <div class="control tile is-child notification is-warning is-12">
+                    {{ form.price(class_="input", value=item_update.price) }}
+                  </div>
+
+                  <p class="title">Enter new price</p>
+                  <div class="control tile is-child notification is-warning is-12">
+                    {{ form.link(class_="input", value=item_update.link) }}
+                  </div>
+                </div>
+                
+                <div class="field tile is-parent">
+                  {{ form.submit(class_="button is-block is-info is-fullwidth tile is-child") }}
+                </div>
+              </form>
+            </article>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
